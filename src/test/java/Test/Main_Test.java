@@ -9,6 +9,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertTrue;
+
 public class Main_Test {
     HomePage homePage;
     NightSchool nightSchool;
@@ -25,11 +27,13 @@ public class Main_Test {
 
     }
 
-    @Test
+    @Test()
     public void TEST_Night () {
         homePage.isShown()
                 .openNightScholl();
         nightSchool.isShown();
+        boolean isPresent = homePage.checkNightCoursesArePresent();
+        assertTrue(isPresent);
 
     }
 
@@ -38,6 +42,8 @@ public class Main_Test {
         homePage.isShown()
                 .openDaySchool();
         daySchool.isShown();
+        boolean isPresent = homePage.checkDayCoursesArePresent();
+        assertTrue(isPresent);
 
     }
     @AfterMethod

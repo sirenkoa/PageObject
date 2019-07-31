@@ -2,7 +2,11 @@ package PO;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class HomePage extends BasePage {
     public HomePage (WebDriver driver){
@@ -38,6 +42,69 @@ public class HomePage extends BasePage {
         driver.findElement(daycourses).click();
         return this;
 
+    }
+
+    public boolean checkDayCoursesArePresent() {
+
+        String arr[] = {
+                "Microsoft",
+                "Cisco",
+                "UNIX / Linux",
+                "Oracle",
+                "ITIL",
+                "Програмування",
+                "Управління проектами",
+                "Курси для користувачів",
+                "Vmware",
+                "Teradata",
+                "EC-Council"
+        };
+        List<String> courses = Arrays.asList(arr);
+        List<WebElement> list = driver.findElements(By.xpath("//h2"));
+        for(WebElement el: list) {
+            if(!courses.contains(el.getText())){
+                System.out.println(String.format("Expected courses to contain '%s'.", el.getText()));
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean checkNightCoursesArePresent() {
+
+        String arr[] = {
+                "Тестування",
+                "Frontend development",
+                "JS development",
+                "Веб-дизайн",
+                "PHP",
+                "Програмування під IOS",
+                "Програмування під Android",
+                "Java programming",
+                "Python",
+                "Data Science/Machine Learning",
+                "C# /.NET development",
+                "C++",
+                "Game Development",
+                "DEVOPS",
+                "Маленький інтелектуал",
+                "Курси створення сайтів для дітей",
+                "Digital Marketing",
+                "Управління персоналом",
+                "Управління проектами",
+                "Менеджмент",
+                "Кібербезпека",
+                "Відеомонтаж",
+                "Cisco"
+        };
+        List<String> courses = Arrays.asList(arr);
+        List<WebElement> list = driver.findElements(By.xpath("//h2"));
+        for (WebElement el : list) {
+            if (!courses.contains(el.getText())) {
+                System.out.println(String.format("Expected courses to contain '%s'.", el.getText()));
+                return false;
+            }
+        }
+        return true;
     }
     public HomePage Close (){
         driver.quit();
