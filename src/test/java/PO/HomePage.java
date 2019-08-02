@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
     By nightcourses = By.id("menu-item-7871");
     By dayschoolBtn =By.id("menu-item-7956");
     By daycourses = By.id("menu-item-7885");
-   // By languge = By.xpath("//a[text()='UA']");
+    By languge = By.xpath("(//a[text()='UA'])[1]");
 
 
 
@@ -30,18 +30,18 @@ public class HomePage extends BasePage {
        logger.info("Open home page");
 
         driver.manage().window().maximize();
-        driver.get("http://iteaua-develop.demo.gns-it.com/uk/");
+        driver.get("http://iteaua-develop.demo.gns-it.com/");
 
 
         return this;
     }
 
-    /*public HomePage selectLanguage () {
+    public HomePage selectLanguage () {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(languge));
         driver.findElement(languge).click();
-        return this;*/
+        return this;
 
-   // }
+    }
 
     public HomePage openNightScholl() {
        logger.info("open Night Scholl Page");

@@ -13,6 +13,8 @@ public class BasePage {
 
     WebDriver driver;
     WebDriverWait wait;
+
+
     BasePage(WebDriver driver) {
         loggerForBase.info("Initialize wait");
         this.driver = driver;
