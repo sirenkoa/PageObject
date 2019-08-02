@@ -13,3 +13,6 @@
 2019-08-02 20:49:10 WARN  HomePage:134 - Close webBrowser
 2019-08-02 20:49:26 ERROR HomePage:127 - courses in the database do not match courses on the site
 2019-08-02 20:49:26 WARN  HomePage:134 - Close webBrowser
+2019-08-02 20:58:39 WARN  HomePage:134 - Close webBrowser
+2019-08-02 20:59:28 ERROR HomePage:127 - courses in the database do not match courses on the site
+2019-08-02 20:59:28 WARN  HomePage:134 - Close webBrowser

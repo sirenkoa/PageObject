@@ -14,12 +14,12 @@ import java.nio.file.Paths;
 public class Screenshot {
     private WebDriver driver;
 
-    Screenshot(WebDriver driver) {
+   public Screenshot(WebDriver driver) {
         this.driver = driver;
     }
 
 
-    void makeScreenShot(ITestResult result) {
+   public void makeScreenShot(ITestResult result) {
         TakesScreenshot screenshot = (TakesScreenshot) driver;
         File src = screenshot.getScreenshotAs(OutputType.FILE);
         Path currentRelativePath = Paths.get("");
