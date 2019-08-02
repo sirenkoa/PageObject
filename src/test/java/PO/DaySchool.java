@@ -12,6 +12,8 @@ public class DaySchool extends BasePage {
         By dayschoolHeader = By.xpath("//h1[contains(text(), 'Денне навчання')]");
 
         public DaySchool isShown() {
+            logger.info("check isShown DaySchool page");
+
             wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(dayschoolHeader));
             return this;
         }

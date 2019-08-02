@@ -17,17 +17,35 @@ public class HomePage extends BasePage {
     By nightcourses = By.id("menu-item-7871");
     By dayschoolBtn =By.id("menu-item-7956");
     By daycourses = By.id("menu-item-7885");
+   // By languge = By.xpath("//a[text()='UA']");
+
+
+
+
+
+
 
 
     public HomePage isShown() {
+       logger.info("Open home page");
+
         driver.manage().window().maximize();
-        driver.get("http://iteaua-develop.demo.gns-it.com/");
+        driver.get("http://iteaua-develop.demo.gns-it.com/uk/");
 
 
         return this;
     }
 
+    /*public HomePage selectLanguage () {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(languge));
+        driver.findElement(languge).click();
+        return this;*/
+
+   // }
+
     public HomePage openNightScholl() {
+       logger.info("open Night Scholl Page");
+
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(nightschoolBtn));
         driver.findElement(nightschoolBtn).click();
         wait.until(ExpectedConditions.elementToBeClickable(nightcourses));
@@ -36,6 +54,8 @@ public class HomePage extends BasePage {
         return this;
     }
     public HomePage openDaySchool (){
+       logger.info("open Day School Page");
+
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(dayschoolBtn));
         driver.findElement(dayschoolBtn).click();
         wait.until(ExpectedConditions.elementToBeClickable(daycourses));
@@ -45,6 +65,7 @@ public class HomePage extends BasePage {
     }
 
     public boolean checkDayCoursesArePresent() {
+       logger.info("check day courses");
 
         String arr[] = {
                 "Microsoft",
@@ -64,12 +85,14 @@ public class HomePage extends BasePage {
         for(WebElement el: list) {
             if(!courses.contains(el.getText())){
                 System.out.println(String.format("Expected courses to contain '%s'.", el.getText()));
+                logger.error("courses in the database do not match courses on the site");
                 return false;
             }
         }
         return true;
     }
     public boolean checkNightCoursesArePresent() {
+       logger.info("check night courses ");
 
         String arr[] = {
                 "Тестування",
@@ -77,8 +100,6 @@ public class HomePage extends BasePage {
                 "JS development",
                 "Веб-дизайн",
                 "PHP",
-                "Програмування під IOS",
-                "Програмування під Android",
                 "Java programming",
                 "Python",
                 "Data Science/Machine Learning",
@@ -86,27 +107,33 @@ public class HomePage extends BasePage {
                 "C++",
                 "Game Development",
                 "DEVOPS",
-                "Маленький інтелектуал",
-                "Курси створення сайтів для дітей",
                 "Digital Marketing",
                 "Управління персоналом",
                 "Управління проектами",
-                "Менеджмент",
-                "Кібербезпека",
+                "Mobile development",
                 "Відеомонтаж",
-                "Cisco"
+                "Cisco",
+                "Go development",
+                //"Кібербезпека",
+                "Менеджмент"
+
+
         };
         List<String> courses = Arrays.asList(arr);
         List<WebElement> list = driver.findElements(By.xpath("//h2"));
         for (WebElement el : list) {
             if (!courses.contains(el.getText())) {
                 System.out.println(String.format("Expected courses to contain '%s'.", el.getText()));
+                logger.error("courses in the database do not match courses on the site");
                 return false;
             }
         }
         return true;
     }
     public HomePage Close (){
+        logger.warn("Close webBrowser");
+
+
         driver.quit();
         return this;
     }

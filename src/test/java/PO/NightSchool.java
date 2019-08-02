@@ -12,6 +12,8 @@ public class NightSchool extends BasePage {
     By nightschoolHeader = By.xpath("//h1[contains(text(), 'Вечірні курси')]");
 
     public NightSchool isShown() {
+        logger.info("check isShown NightSchool page");
+
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(nightschoolHeader));
         return this;
     }
